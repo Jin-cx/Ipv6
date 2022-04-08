@@ -1,0 +1,198 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{B616EAE7-DA70-4608-B9ED-3DFDE8D8FC2A}</ProjectGuid>
+			<MainSource>DDCtrl.dpr</MainSource>
+			<ProjectVersion>12.3</ProjectVersion>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<Platform>Win32</Platform>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_DcuOutput>.\$(Config)\$(Platform)</DCC_DcuOutput>
+			<DCC_E>false</DCC_E>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_ExeOutput>.\$(Config)\$(Platform)</DCC_ExeOutput>
+			<DCC_S>false</DCC_S>
+			<GenDll>true</GenDll>
+			<DCC_N>false</DCC_N>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_ExeOutput>..\..\out\V1.1\_do\</DCC_ExeOutput>
+			<DCC_DcuOutput>..\..\out\dcu\</DCC_DcuOutput>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_ExeOutput>..\..\out\htdocs\dd-iot\_do\</DCC_ExeOutput>
+			<DCC_DcuOutput>..\..\tmp\</DCC_DcuOutput>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="DDCtrl.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\puer\pubUnit\FastMM4.pas"/>
+			<DCCReference Include="..\puer\pubUnit\FastMM4Messages.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.CacheModels.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.DateFormatSet.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.Json.JsonDataObjects.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.SyncObjs.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.System.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.DateUtils.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.Collections.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.FileUtils.pas"/>
+			<DCCReference Include="..\puer\interface\UPrMsgInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrSessionInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrEMailInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrDebugInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrDbConnInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrMQTTBrokerInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrMQTTClientForPuerInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrMQTTClientInter.pas"/>
+			<DCCReference Include="..\dllInterface\UDDDataInter.pas"/>
+			<DCCReference Include="..\dllInterface\UDDCommInter.pas"/>
+			<DCCReference Include="..\dllInterface\UDDModelsInter.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDBrokerData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDCustomDeviceData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDTopologyData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDGatewayData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDDeviceData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDTopologyCacheData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDRequestData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDValueListData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDDeviceRealData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDCommData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDLogData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDUserData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDMonitorData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDTopologyDataJson.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDFileListData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDFieldData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDFolderData.pas"/>
+			<DCCReference Include="..\classes\model\UDDBrokerModelData.pas"/>
+			<DCCReference Include="..\classes\model\UDDDeviceModelData.pas"/>
+			<DCCReference Include="..\classes\model\UDDGatewayModelData.pas"/>
+			<DCCReference Include="..\classes\model\UDDParamData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDMeterData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDHourValueData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDHourDosageData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDOffLineDeviceData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UOnLineData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UBrokerInfoData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UEnergyUseData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDCommDataInfoData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UEnergyTypeData.pas"/>
+			<DCCReference Include="..\classes\dataDigger\UDDChangeData.pas"/>
+			<DCCReference Include="..\dllInterface\UDDTopoCacheInter.pas"/>
+			<DCCReference Include="..\dllInterface\UDDNoticeInter.pas"/>
+			<DCCReference Include="UdoDDCache.Topo.pas"/>
+			<DCCReference Include="UdoDDAPI.User.pas"/>
+			<DCCReference Include="UdoDDAPI.Log.pas"/>
+			<DCCReference Include="UdoDDAPI.DeviceData.pas"/>
+			<DCCReference Include="UdoDDAPI.DeviceCmd.pas"/>
+			<DCCReference Include="UdoDDAPI.Monitor.pas"/>
+			<DCCReference Include="UdoDDAPI.Login.pas"/>
+			<DCCReference Include="UdoDDAPI.Meter.pas"/>
+			<DCCReference Include="UdoDDAPI.OnLine.pas"/>
+			<DCCReference Include="UdoDDAPI.DeviceChange.pas"/>
+			<DCCReference Include="UdoDDCtrl.pas"/>
+			<DCCReference Include="UdoDDAction.pas"/>
+			<DCCReference Include="UdoDDWork.CommIO.pas"/>
+			<DCCReference Include="UdoDDWork.MeterStatisTask.pas"/>
+			<DCCReference Include="UdoDDWork.OnLineRateStatisTask.pas"/>
+			<DCCReference Include="MyUnit\UMyConfig.pas"/>
+			<DCCReference Include="MyUnit\UMyDebug.pas"/>
+			<DCCReference Include="UdoDDWork.CommStatis.pas"/>
+			<DCCReference Include="UdoDDWork.Monitor.pas"/>
+			<DCCReference Include="UdoDDAPI.Topo.Broker.pas"/>
+			<DCCReference Include="UdoDDAPI.Topo.Gateway.pas"/>
+			<DCCReference Include="UdoDDAPI.Topo.Terminal.pas"/>
+			<DCCReference Include="UdoDDAPI.CommStatis.pas"/>
+			<DCCReference Include="UdoDDAPI.Topo.General.pas"/>
+			<DCCReference Include="..\puer\interface\UPrHttpClientInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrHttpServerInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrManagerInter.pas"/>
+			<DCCReference Include="..\puer\pubUnit\puer.MSSQL.pas"/>
+			<DCCReference Include="..\puer\interface\UPrLogInter.pas"/>
+			<DCCReference Include="..\dllInterface\UdoQRCodeInter.pas"/>
+			<DCCReference Include="..\puer\interface\UPrActionInter.pas"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">9</VersionInfo>
+						<VersionInfo Name="MinorVer">7</VersionInfo>
+						<VersionInfo Name="Release">9</VersionInfo>
+						<VersionInfo Name="Build">10</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">2052</VersionInfo>
+						<VersionInfo Name="CodePage">936</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">欣动科技</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">核心控制模块</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">9.7.9.10</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright">Copyright (C) 2012-2020 欣动科技 Inc</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName">DD-IoT物联感知平台</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">1.1.39</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Source>
+						<Source Name="MainSource">DDCtrl.dpr</Source>
+					</Source>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
